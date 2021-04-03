@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "react-query"
 import { ReactQueryDevtools } from "react-query/devtools"
 // import { AuthProvider } from "./context/auth-context"
 import { BrowserRouter as Router } from "react-router-dom"
+import { AuthProvider } from "./utils/AuthContext"
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,12 +21,12 @@ export const queryClient = new QueryClient({
 export default function AppProviders({ children }) {
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <AuthProvider> */}
-      <Router>
-        {children}
-        <ReactQueryDevtools />
-      </Router>
-      {/* </AuthProvider> */}
+      <AuthProvider>
+        <Router>
+          {children}
+          <ReactQueryDevtools />
+        </Router>
+      </AuthProvider>
     </QueryClientProvider>
   )
 }

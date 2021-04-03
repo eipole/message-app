@@ -48,7 +48,11 @@ function Posts({ posts }) {
               <Typography component="p">{elem.caption}</Typography>
             </CardContent>
             <CardActions>
-              <IconButton onClick={() => handleClick(elem.id)}>
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={() => handleClick(elem.id)}
+              >
                 Delete
               </IconButton>
             </CardActions>
